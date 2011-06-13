@@ -1,0 +1,45 @@
+﻿<Window x:Class="MPUrlEncoding.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:MPUrlEncoding.ViewModels"
+        xmlns:tk="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" Background="AliceBlue"
+        Title="MainWindow" Height="640" Width="800" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+        
+    <DockPanel>
+
+        <StackPanel DockPanel.Dock="Top">
+            <Label Content="Filter" />
+            <ComboBox Name="cbFilterMode" ItemsSource="{Binding AutoCompleteFilters}" SelectedItem="{Binding SelectedFilterMode}" />           
+        </StackPanel>
+        
+        <StackPanel DockPanel.Dock="Left" Width="200">
+            <Label Content="type character" />
+
+            <tk:AutoCompleteBox Name="acb" Height="25" ItemsSource="{Binding ValuePairs}" ValueMemberPath="Key" FilterMode="{Binding SelectedFilterMode, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
+                <tk:AutoCompleteBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Width="500">
+                            <TextBlock Text="{Binding Key}"/>
+                            <TextBlock Text=" - " />
+                            <TextBlock Text="{Binding Value}">                               
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </tk:AutoCompleteBox.ItemTemplate>
+            </tk:AutoCompleteBox>            
+           
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Left">
+            <Label Content="result" />
+            <TextBox IsReadOnly="True" Text="{Binding ElementName=acb, Path=SelectedItem.Value, Mode=OneWay}" SelectedText="" 
+                     Height="25" />
+        </StackPanel>
+
+       
+    </DockPanel>
+</Window>
