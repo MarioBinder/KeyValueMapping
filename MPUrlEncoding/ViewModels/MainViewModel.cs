@@ -44,7 +44,7 @@ namespace MPUrlEncoding.ViewModels
 
         private void GetAutoCompleteBoxItems()
         {
-            string map = "CurrencyMap.xml";
+            string map = "EncodedCharacterMap.xml";
             var mapping = new Mapping(map);
 
             //mapping.WriteXml();

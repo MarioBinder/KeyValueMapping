@@ -7,7 +7,7 @@ namespace MPUrlEncoding.Models
     public class Mapping
     {
         private List<KeyValuePair<string, string>> _encodingCharacterMap;
-        public string _path { get; set; }
+        private string _path;
 
 
         public List<KeyValuePair<string, string>> GetCharacterMap()

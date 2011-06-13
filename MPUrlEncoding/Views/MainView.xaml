@@ -36,8 +36,7 @@
 
         <StackPanel DockPanel.Dock="Left">
             <Label Content="result" />
-            <TextBox IsReadOnly="True" Text="{Binding ElementName=acb, Path=SelectedItem.Value, Mode=OneWay}" SelectedText="" 
-                     Height="25" />
+            <TextBox IsReadOnly="True" Text="{Binding ElementName=acb, Path=SelectedItem.Value, Mode=OneWay}" Height="25" />
         </StackPanel>
 
        
