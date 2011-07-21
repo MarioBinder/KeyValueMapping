@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace MPUrlEncoding.Views
+namespace KeyValueMapping.Views
 {
     public partial class MainView : Window
     {

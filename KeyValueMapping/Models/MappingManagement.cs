@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Objects;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Xml;
 
-namespace MPUrlEncoding.Models
+namespace KeyValueMapping.Models
 {
     public class MappingManagement
     {

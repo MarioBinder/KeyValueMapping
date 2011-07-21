@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
-using MPUrlEncoding.Models;
+using KeyValueMapping.Models;
 
-namespace MPUrlEncoding.ViewModels
+namespace KeyValueMapping.ViewModels
 {
     public class MainViewModel : ViewModelBase<MainViewModel>
     {

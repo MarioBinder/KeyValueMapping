@@ -17,7 +17,7 @@ using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 
-namespace MPUrlEncoding.Models
+namespace KeyValueMapping.Models
 {
     #region Kontexte
     

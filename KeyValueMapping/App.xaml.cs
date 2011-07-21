@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace MPUrlEncoding
+namespace KeyValueMapping
 {
     /// <summary>
     /// Interaktionslogik für "App.xaml"

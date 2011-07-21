@@ -8,8 +8,8 @@
     <ProjectGuid>{DF5D9FE1-BA9F-483F-860D-58EA2F8ECF2B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MPUrlEncoding</RootNamespace>
-    <AssemblyName>MPUrlEncoding</AssemblyName>
+    <RootNamespace>KeyValueMapping</RootNamespace>
+    <AssemblyName>KeyValueMapping</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
