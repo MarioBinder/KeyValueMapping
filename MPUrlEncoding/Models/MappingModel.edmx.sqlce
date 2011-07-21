@@ -1,0 +1,68 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 07/21/2011 14:48:05
+-- Generated from EDMX file: F:\My Dropbox\Development\3#NET\WPF & Windows Phone 7 & Silverlight\WPF\Coding & Examples\MPUrlEncoding\MPUrlEncoding\Models\MappingModel.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [Mappings1];
+GO
+    DROP TABLE [MappingTypes];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'Mapping'
+CREATE TABLE [Mapping] (
+    [ID] int  NOT NULL,
+    [Key] nvarchar(4000)  NOT NULL,
+    [Value] nvarchar(4000)  NOT NULL,
+    [MappingTypeId] int  NOT NULL
+);
+GO
+
+-- Creating table 'MappingType'
+CREATE TABLE [MappingType] (
+    [ID] int  NOT NULL,
+    [TypeName] nvarchar(4000)  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [ID] in table 'Mapping'
+ALTER TABLE [Mapping]
+ADD CONSTRAINT [PK_Mapping]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'MappingType'
+ALTER TABLE [MappingType]
+ADD CONSTRAINT [PK_MappingType]
+    PRIMARY KEY ([ID] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

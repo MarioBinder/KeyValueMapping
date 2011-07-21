@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MappingModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MappingModelStoreContainer">
+    <EntitySet Name="Mapping" EntityType="MappingModel.Store.Mapping" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MappingType" EntityType="MappingModel.Store.MappingType" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Mapping">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Key" Type="nvarchar" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" Nullable="false" />
+    <Property Name="MappingTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MappingType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MappingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="MappingModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Mapping" EntityType="MappingModel.Mapping" />
+          <EntitySet Name="MappingType" EntityType="MappingModel.MappingType" />
+        </EntityContainer>
+        <EntityType Name="Mapping" Abstract="false">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Key" Nullable="false" />
+          <Property Type="String" Name="Value" Nullable="false" />
+          <Property Type="Int32" Name="MappingTypeId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MappingType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="TypeName" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MappingModelStoreContainer" CdmEntityContainer="MappingModelContainer">
+    <EntitySetMapping Name="Mapping">
+      <EntityTypeMapping TypeName="IsTypeOf(MappingModel.Mapping)">
+        <MappingFragment StoreEntitySet="Mapping">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="MappingTypeId" ColumnName="MappingTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MappingType">
+      <EntityTypeMapping TypeName="IsTypeOf(MappingModel.MappingType)">
+        <MappingFragment StoreEntitySet="MappingType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="MappingModel" >
+        <EntityTypeShape EntityType="MappingModel.Mapping" Width="1.5" PointX="2.5" PointY="1.125" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="MappingModel.MappingType" Width="1.5" PointX="5" PointY="1.25" Height="1.59568359375" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

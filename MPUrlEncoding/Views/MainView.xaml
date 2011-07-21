@@ -12,7 +12,18 @@
     <DockPanel>
 
         <StackPanel DockPanel.Dock="Top">
-            <Label Content="Filter" />
+            <Label Content="Mapping_Type"  Target="{Binding ElementName=cbMappingType}" />
+            <ComboBox Name="cbMappingType" ItemsSource="{Binding MappingTypes}" SelectedItem="{Binding SelectedMappingType}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding TypeName}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        
+        <StackPanel DockPanel.Dock="Top">
+            <Label Content="_Filter" Target="{Binding ElementName=cbFilterMode}" />
             <ComboBox Name="cbFilterMode" ItemsSource="{Binding AutoCompleteFilters}" SelectedItem="{Binding SelectedFilterMode}" />           
         </StackPanel>
         
@@ -23,7 +34,7 @@
                 <tk:AutoCompleteBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Width="500">
-                            <TextBlock Text="{Binding Key}"/>
+                            <TextBlock Text="{Binding Key}" />
                             <TextBlock Text=" - " />
                             <TextBlock Text="{Binding Value}">                               
                             </TextBlock>
@@ -39,6 +50,6 @@
             <TextBox IsReadOnly="True" Text="{Binding ElementName=acb, Path=SelectedItem.Value, Mode=OneWay}" Height="25" />
         </StackPanel>
 
-       
+      
     </DockPanel>
 </Window>

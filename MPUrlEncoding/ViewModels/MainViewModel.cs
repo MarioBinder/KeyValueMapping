@@ -7,9 +7,15 @@ namespace MPUrlEncoding.ViewModels
 {
     public class MainViewModel : ViewModelBase<MainViewModel>
     {
-        public List<KeyValuePair<string, string>> ValuePairs { get; set; }
         public List<AutoCompleteFilterMode> AutoCompleteFilters { get; set; }
-       
+
+        private List<KeyValuePair<string, string>> _valuePairs;
+        public List<KeyValuePair<string, string>> ValuePairs
+        {
+            get { return _valuePairs; }
+            set { _valuePairs = value; RaisePropertyChanged(m => m.ValuePairs); }
+        }
+
         private AutoCompleteFilterMode _selectedFilterMode;
         public AutoCompleteFilterMode SelectedFilterMode
         {
@@ -24,16 +30,43 @@ namespace MPUrlEncoding.ViewModels
                 RaisePropertyChanged(m => m.SelectedFilterMode);
             }
         }
-        
+
+        private List<MappingType> _mappingTypes;
+        public List<MappingType> MappingTypes
+        {
+            get { return _mappingTypes; }
+            set { _mappingTypes = value; RaisePropertyChanged(m => m.MappingTypes); }
+        }
+
+        private MappingType _selectedMappingType;
+        public MappingType SelectedMappingType
+        {
+            get { return _selectedMappingType; }
+            set { _selectedMappingType = value; GetAutoCompleteBoxItems(_selectedMappingType); }
+        }
+
+
         public MainViewModel()
         {
             SetAutoCompleteFilters();
-            GetAutoCompleteBoxItems();
+            GetMappingTypes();
+
+            //first select TODO - configuration or last input
+            SelectedFilterMode = AutoCompleteFilterMode.Contains;
+           
         }
-        
+
+        private void GetMappingTypes()
+        {
+            MappingTypes = new List<MappingType>();
+            var mappingManagement = new MappingManagement();
+
+            MappingTypes = mappingManagement.GetMappingTypes();
+        }
+
         private void SetAutoCompleteFilters()
         {
-            var values = Enum.GetValues((typeof(AutoCompleteFilterMode)));
+            Array values = Enum.GetValues((typeof(AutoCompleteFilterMode)));
 
             AutoCompleteFilters = new List<AutoCompleteFilterMode>();
             foreach (AutoCompleteFilterMode value in values)
@@ -42,16 +75,13 @@ namespace MPUrlEncoding.ViewModels
             }
         }
 
-        private void GetAutoCompleteBoxItems()
+        private void GetAutoCompleteBoxItems(MappingType mappingType)
         {
-            string map = "EncodedCharacterMap.xml";
-            var mapping = new Mapping(map);
+            var mapping = new MappingManagement();
 
-            //mapping.WriteXml();
-            mapping.ReadXml(map);
-            ValuePairs = mapping.GetCharacterMap();
+            if (mappingType != null)
+                ValuePairs = mapping.GetCharacterMap(mappingType.ID);
         }
-
 
     }
 }
